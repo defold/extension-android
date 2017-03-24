@@ -1,0 +1,10 @@
+function init(self)
+    
+    local prevcrash = crash.load_previous()
+    if prevcrash then
+	    local backtrace = crash.get_backtrace(prevcrash)
+	    pprint(backtrace)
+	    print("Extra data: \n" .. crash.get_extra_data(prevcrash))
+    end
+
+end
