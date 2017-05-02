@@ -7,9 +7,11 @@
 
 static JNIEnv* Attach()
 {
+    
     JNIEnv* env;
     JavaVM* vm = dmGraphics::GetNativeAndroidJavaVM();
     vm->AttachCurrentThread(&env, NULL);
+    
     return env;
 }
 
@@ -33,7 +35,8 @@ static int DoStuff(lua_State* L)
     jclass class_loader = env->FindClass("java/lang/ClassLoader");
     jmethodID find_class = env->GetMethodID(class_loader, "loadClass", "(Ljava/lang/String;)Ljava/lang/Class;");
 
-    jstring str_class_name = env->NewStringUTF("com.svenandersson.dummy.Dummy");
+    //jstring str_class_name = env->NewStringUTF("com.svenandersson.dummy.Dummy");
+    jstring str_class_name = env->NewStringUTF("com.defold.androidnativeext.Sven");
     jclass dummy_class = (jclass)env->CallObjectMethod(cls, find_class, str_class_name);
     env->DeleteLocalRef(str_class_name);
 
@@ -47,10 +50,58 @@ static int DoStuff(lua_State* L)
     return 1;
 }
 
+static int Vibrate(lua_State* L)
+{
+    JNIEnv* env = Attach();
+
+    jclass activity_class = env->FindClass("android/app/NativeActivity");
+    jmethodID get_class_loader = env->GetMethodID(activity_class,"getClassLoader", "()Ljava/lang/ClassLoader;");
+    jobject cls = env->CallObjectMethod(dmGraphics::GetNativeAndroidActivity(), get_class_loader);
+    jclass class_loader = env->FindClass("java/lang/ClassLoader");
+    jmethodID find_class = env->GetMethodID(class_loader, "loadClass", "(Ljava/lang/String;)Ljava/lang/Class;");
+
+    jstring str_class_name = env->NewStringUTF("com.defold.androidnativeext.Sven");
+    jclass dummy_class = (jclass)env->CallObjectMethod(cls, find_class, str_class_name);
+    env->DeleteLocalRef(str_class_name);
+
+    jmethodID dummy_method = env->GetStaticMethodID(dummy_class, "vibratePhone", "(Landroid/content/Context;I)V");
+    env->CallStaticObjectMethod(dummy_class, dummy_method, dmGraphics::GetNativeAndroidActivity(), 1000);
+
+    Detach(env);
+
+    return 0;
+}
+
+static int GetRaw(lua_State* L)
+{
+    JNIEnv* env = Attach();
+
+    jclass activity_class = env->FindClass("android/app/NativeActivity");
+    jmethodID get_class_loader = env->GetMethodID(activity_class,"getClassLoader", "()Ljava/lang/ClassLoader;");
+    jobject cls = env->CallObjectMethod(dmGraphics::GetNativeAndroidActivity(), get_class_loader);
+    jclass class_loader = env->FindClass("java/lang/ClassLoader");
+    jmethodID find_class = env->GetMethodID(class_loader, "loadClass", "(Ljava/lang/String;)Ljava/lang/Class;");
+
+    jstring str_class_name = env->NewStringUTF("com.defold.androidnativeext.Sven");
+    jclass dummy_class = (jclass)env->CallObjectMethod(cls, find_class, str_class_name);
+    env->DeleteLocalRef(str_class_name);
+
+    jmethodID dummy_method = env->GetStaticMethodID(dummy_class, "GetRaw", "(Landroid/content/Context;)Ljava/lang/String;");
+    jstring dummy_return_value = (jstring)env->CallStaticObjectMethod(dummy_class, dummy_method, dmGraphics::GetNativeAndroidActivity());
+    lua_pushstring(L, env->GetStringUTFChars(dummy_return_value, 0));
+    env->DeleteLocalRef(dummy_return_value);
+
+    Detach(env);
+
+    return 1;
+}
+
 // Functions exposed to Lua
 static const luaL_reg Module_methods[] =
 {
     {"dostuff", DoStuff},
+    {"vibrate", Vibrate},
+    {"getraw", GetRaw},
     {0, 0}
 };
 

@@ -294,7 +294,7 @@ animations {
   images {
     image: "/main/images/explosion01/explosion01-frame100.png"
   }
-  playback: PLAYBACK_LOOP_FORWARD
+  playback: PLAYBACK_ONCE_FORWARD
   fps: 40
   flip_horizontal: 0
   flip_vertical: 0

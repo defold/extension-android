@@ -1,7 +1,10 @@
 function init(self)
-    local res = androidnative.dostuff()
-    print(res)
+    --local res = androidnative.dostuff()
+    local res = androidnative.getraw()
+    --print(res)
     gui.set_text(gui.get_node("text1"), "Android says: \n" .. tostring(res))
+    
+    msg.post(".", "acquire_input_focus")
 end
 
 function final(self)
@@ -20,8 +23,9 @@ function on_message(self, message_id, message, sender)
 end
 
 function on_input(self, action_id, action)
-    -- Add input-handling code here
-    -- Remove this function if not needed
+    if (action_id == hash("touch") and action.released) then
+        androidnative.vibrate()
+    end
 end
 
 function on_reload(self)
