@@ -5,6 +5,6 @@ package com.svenandersson.dummy;
  */
 public class Dummy {
     static public String DoStuff() {
-        return "Hello from the other siiiiiiide!!!";
+        return "Hello from the Dummy.jar!";
     }
 }

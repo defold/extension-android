@@ -7,16 +7,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
 
-
-
-
-
-
-
-
-
-
-class Sven {
+class NativeExample {
 
     public static final void vibratePhone(Context context, int vibrateMilliSeconds) {
         Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
@@ -24,12 +15,12 @@ class Sven {
     }
     
     public static String DoStuff() {
-        return "Touch me!";
+        return "Message From Java!";
     }
     
     public static String GetRaw(Context context) {
         try {
-            InputStream inputStream = context.getResources().openRawResource(R.raw.apa);
+            InputStream inputStream = context.getResources().openRawResource(R.raw.test);
             InputStreamReader inputreader = new InputStreamReader(inputStream);
             BufferedReader buffreader = new BufferedReader(inputreader);
             String line;
