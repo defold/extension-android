@@ -27,3 +27,10 @@ It requires `javac` which you'll get when you install the [Java SE Development K
 
 Note that we use the flags `-source 1.6 -target 1.6` due to the fact that we support many older Android devices.
 
+## Build .a Files
+
+To show you how to create a C++ library file on your own, we've added a small example for this.
+Simply open a command prompt and go to the `java_src` folder, and run the `build.sh` file.
+It requires that you have installed an Android SDK and NDK.
+
+    NOTE: You may have to alter your "lib_src/build.sh" script with the appropriate paths to your local android tools

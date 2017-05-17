@@ -9,6 +9,8 @@
 
 #if defined(DM_PLATFORM_ANDROID)
 
+#include "testlib.h" // Multiply
+
 static JNIEnv* Attach()
 {
     JNIEnv* env;
@@ -56,6 +58,7 @@ static jclass GetClass(JNIEnv* env, const char* classname)
 
 static int DoStuffJava(lua_State* L)
 {
+    DM_LUA_STACK_CHECK(L, 1);
     AttachScope attachscope;
     JNIEnv* env = attachscope.m_Env;
 
@@ -70,6 +73,7 @@ static int DoStuffJava(lua_State* L)
 
 static int DoStuffJar(lua_State* L)
 {
+    DM_LUA_STACK_CHECK(L, 1);
     AttachScope attachscope;
     JNIEnv* env = attachscope.m_Env;
 
@@ -98,6 +102,7 @@ static int Vibrate(lua_State* L)
 
 static int GetRaw(lua_State* L)
 {
+    DM_LUA_STACK_CHECK(L, 1);
     AttachScope attachscope;
     JNIEnv* env = attachscope.m_Env;
 
@@ -111,6 +116,17 @@ static int GetRaw(lua_State* L)
     return 1;
 }
 
+static int Multiply(lua_State* L)
+{
+    DM_LUA_STACK_CHECK(L, 1);
+
+    lua_Number a = luaL_checknumber(L, 1);
+    lua_Number b = luaL_checknumber(L, 2);
+
+    lua_pushnumber(L, a * b);
+    return 1;
+}
+
 // Functions exposed to Lua
 static const luaL_reg Module_methods[] =
 {
@@ -118,6 +134,7 @@ static const luaL_reg Module_methods[] =
     {"dostuff_jar", DoStuffJar},
     {"vibrate", Vibrate},
     {"getraw", GetRaw},
+    {"multiply", Multiply},
     {0, 0}
 };
 
