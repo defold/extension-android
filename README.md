@@ -1,6 +1,6 @@
 # Android Extension
 
-![50 points](main/images/androidnativeext.png)
+![50 points](androidnativeext.png)
 
 This is a small example of how to implement native extensions for Android
 
@@ -15,7 +15,7 @@ as such, they need to conform to the naming [standards of Android resources](htt
 
 To be able to communicate between C++ and Java, you use [JNI Calls](https://en.wikipedia.org/wiki/Java_Native_Interface). Some resources:
 
-* [JNI Tips](https://developer.android.com/training/articles/perf-jni.html) 
+* [JNI Tips](https://developer.android.com/training/articles/perf-jni.html)
 
 * [JNI Hello World](https://developer.android.com/ndk/samples/sample_hellojni.html)
 

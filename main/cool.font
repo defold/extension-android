@@ -1,8 +1,0 @@
-font: "/builtins/fonts/vera_mo_bd.ttf"
-material: "/main/font-cool.material"
-size: 32
-outline_alpha: 1.0
-outline_width: 4.0
-shadow_alpha: 1.0
-shadow_blur: 2
-output_format: TYPE_DISTANCE_FIELD

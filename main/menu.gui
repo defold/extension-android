@@ -1,7 +1,7 @@
-script: "/main/test.gui_script"
+script: "/main/menu.gui_script"
 fonts {
   name: "cool"
-  font: "/main/cool.font"
+  font: "/main/assets/fonts/vera_mo.font"
 }
 background_color {
   x: 0.0
@@ -64,16 +64,12 @@ nodes {
   line_break: true
   layer: ""
   inherit_alpha: true
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: false
   text_leading: 1.1
   text_tracking: 0.1
-  size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
@@ -130,16 +126,12 @@ nodes {
   line_break: true
   layer: ""
   inherit_alpha: true
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: false
   text_leading: 1.1
   text_tracking: 0.1
-  size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
@@ -251,16 +243,12 @@ nodes {
   parent: "bn_vibrate"
   layer: ""
   inherit_alpha: true
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.2
-  size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
@@ -372,16 +360,12 @@ nodes {
   parent: "bn_resource"
   layer: ""
   inherit_alpha: true
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.2
-  size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
@@ -493,16 +477,12 @@ nodes {
   parent: "bn_jar"
   layer: ""
   inherit_alpha: true
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.2
-  size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
@@ -614,16 +594,12 @@ nodes {
   parent: "bn_java"
   layer: ""
   inherit_alpha: true
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.2
-  size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
@@ -735,16 +711,12 @@ nodes {
   parent: "bn_lib"
   layer: ""
   inherit_alpha: true
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.2
-  size_mode: SIZE_MODE_AUTO
 }
 material: "/builtins/materials/gui.material"
 adjust_reference: ADJUST_REFERENCE_PARENT
