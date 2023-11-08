@@ -28,6 +28,7 @@ bundle_identifier = com.defold.androidnativeext
 
 [android]
 package = com.defold.androidnativeext
+manifest = /CustomManifest/AndroidManifest.xml
 
 [graphics]
 default_texture_min_filter = linear

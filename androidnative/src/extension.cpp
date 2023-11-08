@@ -3,6 +3,7 @@
 #define LIB_NAME "androidnative"
 #define MODULE_NAME LIB_NAME
 
+
 // Defold SDK
 #define DLIB_LOG_DOMAIN LIB_NAME
 #include <dmsdk/sdk.h>
@@ -90,13 +91,14 @@ static int Vibrate(lua_State* L)
 {
     AttachScope attachscope;
     JNIEnv* env = attachscope.m_Env;
-    
+
     int duration = luaL_checkint(L, 1);
 
     jclass cls = GetClass(env, "com.defold.androidnativeext.NativeExample");
-
-    jmethodID dummy_method = env->GetStaticMethodID(cls, "vibratePhone", "(Landroid/content/Context;I)V");
-    env->CallStaticObjectMethod(cls, dummy_method, dmGraphics::GetNativeAndroidActivity(), duration);
+    
+    jmethodID vibrate_method = env->GetStaticMethodID(cls, "vibratePhone", "(Landroid/content/Context;I)V");
+    jobject context = dmGraphics::GetNativeAndroidActivity();    
+    env->CallStaticVoidMethod(cls, vibrate_method, context, duration);    
     return 0;
 }
 
