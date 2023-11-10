@@ -1,6 +1,5 @@
 function init(self)
-    --local res = androidnative.dostuff()
-        
+    --local res = androidnative.dostuff()        
     msg.post(".", "acquire_input_focus")
 end
 
