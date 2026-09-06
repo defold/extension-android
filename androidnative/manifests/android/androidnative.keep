@@ -1,0 +1,3 @@
+# Native code loads NativeExample and the bundled Dummy.jar classes by name through JNI.
+-keep,allowoptimization class com.defold.androidnativeext.** { *; }
+-keep,allowoptimization class com.svenandersson.dummy.** { *; }
